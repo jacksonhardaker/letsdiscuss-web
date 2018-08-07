@@ -1,48 +1,99 @@
 import Cookies from 'js-cookie';
-import { resolve } from 'url';
+import axios from 'axios';
+import { AUTH } from '../mutation.const';
 
 const state = {
   token: Cookies.get('LD-user-token') || null,
-  status: '',
-  person: null
+  status: ''
 };
 
 const getters = {
   isAuthenticated: state => !!state.token,
-  authStatus: state => state.status,
-  person: state => state.person
+  authStatus: state => state.status
 };
 
 const mutations = {
-  ['FACEBOOK_AUTH_REQUEST']: state => {
+  [AUTH.facebook.request]: state => {
     state.status = 'loading';
   },
-  ['FACEBOOK_AUTH_SUCCESS']: (state, token) => {
+  [AUTH.facebook.success]: (state, token) => {
     state.status = 'success'
     state.token = token
   },
-  ['FACEBOOK_AUTH_ERROR']: (state) => {
+  [AUTH.facebook.error]: (state) => {
     state.status = 'error'
   },
+  [AUTH.google.request]: state => {
+    state.status = 'loading';
+  },
+  [AUTH.google.success]: (state, token) => {
+    state.status = 'success'
+    state.token = token
+  },
+  [AUTH.google.error]: (state) => {
+    state.status = 'error'
+  }
 };
 
 const actions = {
-  ['FACEBOOK_AUTH_REQUEST']: ({ commit, dispatch }) => {
+  ['facebookLogin']: ({ commit, dispatch }) => {
     return new Promise((resolve, reject) => {
-      commit('FACEBOOK_AUTH_REQUEST');
+      commit(AUTH.facebook.request);
 
       const callback = received => {
-        Cookies.set('LD-user-token', received.data.token);
+        let token = received.data.token;
 
-        commit('FACEBOOK_AUTH_SUCCESS', received.data.token);
+        Cookies.set('LD-user-token', token);
+
+        axios.defaults.headers.common['Authorization'] = token;
+        commit(AUTH.facebook.success, token);
+        dispatch('CURRENT_PERSON_REQUEST', token);
+        
+        resolve(token);
+
+        // Remove event listener.
         window.removeEventListener('message', callback);
-        resolve(received.data.token);
       };
 
+      // Add event listener.
       window.addEventListener('message', callback);
 
-      let v = window.open(
-        'http://localhost:3000/oauth/facebook',
+      let baseUrl = process.env.API_URL;
+
+      window.open(
+        `${ baseUrl }/oauth/facebook`,
+        'pop',
+        'width=600, height=640, scrollbars=no'
+      );
+
+    });
+  },
+  ['googleLogin']: ({ commit, dispatch }) => {
+    return new Promise((resolve, reject) => {
+      commit(AUTH.google.request);
+
+      const callback = received => {
+        let token = received.data.token;
+
+        Cookies.set('LD-user-token', token);
+
+        axios.defaults.headers.common['Authorization'] = token;
+        commit(AUTH.google.success, token);
+        dispatch('CURRENT_PERSON_REQUEST', token);
+        
+        resolve(token);
+
+        // Remove event listener.
+        window.removeEventListener('message', callback);
+      };
+
+      // Add event listener.
+      window.addEventListener('message', callback);
+
+      let baseUrl = process.env.API_URL;
+
+      window.open(
+        `${ baseUrl }/oauth/google`,
         'pop',
         'width=600, height=640, scrollbars=no'
       );
