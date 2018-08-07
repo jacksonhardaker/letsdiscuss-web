@@ -3,16 +3,14 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex';
+
 export default {
   name: `FacebookLoginButton`,
   methods: {
-    login () {
-        console.log('[Attempting to login with Facebook...]');
-
-      this.$store.dispatch('FACEBOOK_AUTH_REQUEST', {}).then((res) => {
-        console.log(res);
-      });
-    }
+    ...mapActions({
+      login: 'facebookLogin'
+    })
   }
 };
 </script>
