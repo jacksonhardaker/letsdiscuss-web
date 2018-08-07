@@ -9,6 +9,8 @@ import mutations from './mutations.js';
 import actions from './actions.js';
 
 import auth from './modules/auth.module.js';
+import person from './modules/person.module.js';
+import article from './modules/article.module.js';
 
 export default new Vuex.Store({
   // Making sure that we're doing
@@ -20,6 +22,8 @@ export default new Vuex.Store({
   mutations,
   actions,
   modules: {
-    auth
+    auth,
+    person,
+    article
   }
 });

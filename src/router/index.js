@@ -5,6 +5,7 @@ Vue.use(Router);
 
 import PageHome from '@/components/page/PageHome';
 import PageAbout from '@/components/page/PageAbout';
+import PageArticle from '@/components/page/PageArticle';
 
 export default new Router({
   routes: [
@@ -17,6 +18,11 @@ export default new Router({
       path: '/about',
       name: 'about',
       component: PageAbout
+    },
+    {
+      path: '/article/:alias/:date/:slug',
+      name: 'article',
+      component: PageArticle
     }
   ],
   mode: 'history'
