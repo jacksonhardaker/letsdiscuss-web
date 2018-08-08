@@ -40,10 +40,10 @@ $dimensions--loading: 100px;
   height: $dimensions--loading;
   position: relative;
   border: 60px solid transparent;
-  background-color: $white;
   opacity: 0;
   transition: opacity 0.4s linear;
-//   pointer-events: none;
+  pointer-events: none;
+  border-radius: 10px;
 }
 
 .loading--show {
