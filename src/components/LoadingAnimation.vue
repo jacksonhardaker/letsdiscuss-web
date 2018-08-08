@@ -28,17 +28,21 @@ export default {
 <style lang="scss" scoped>
 @import '../styles/scss/colors.scss';
 
-$animation-increment: 0.3;
-
+$animation-increment: 0.2;
 $scale-small--loading: scale(0.001);
 $scale-large--loading: scale(8);
+$dimensions--loading: 100px;
 
 .loading {
-    width: 100px;
-    height: 100px;
-    position: relative;
+    width: $dimensions--loading;
+    height: $dimensions--loading;
+    position: fixed;
+    top: calc(50vh - #{$dimensions--loading});
+    left: calc(50% - #{$dimensions--loading});
     border: 60px solid transparent;
     display: none;
+    background-color: $white;
+    z-index: 9999;
 }
 
 .loading--animate {
