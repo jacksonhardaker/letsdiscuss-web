@@ -1,17 +1,17 @@
 <template>
   <div id="app">
     <router-view/>
-    <LoadingAnimation/>
+    <GlobalLoadingAnimation/>
   </div>
 </template>
 
 <script>
-import LoadingAnimation from './components/LoadingAnimation';
+import GlobalLoadingAnimation from './components/GlobalLoadingAnimation';
 
 export default {
   name: 'App',
   components: {
-    LoadingAnimation
+    GlobalLoadingAnimation
   }
 }
 </script>

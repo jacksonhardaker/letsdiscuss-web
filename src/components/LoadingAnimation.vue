@@ -17,35 +17,12 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
-
-function delayAnimation() {
-  const delay = this.showLoadingAnimation ? 0 : 400;
-  
-  return new Promise((resolve, reject) => {
-    setTimeout(() => resolve(this.showLoadingAnimation), delay);
-  });
-}
 
 export default {
   name: 'LoadingAnimation',
-  computed: {
-    ...mapGetters({
-      showLoadingAnimation: 'showLoadingAnimation'
-    }),
-    show() {
-      return this.showLoadingAnimation;
-    }
-  },
-  asyncComputed: {
-    animate: {
-      async get() {
-        return await delayAnimation.call(this);
-      },
-      watch() {
-        this.showLoadingAnimation;
-      }
-    }
+  props: {
+      show: Boolean,
+      animate: Boolean
   }
 };
 </script>
@@ -61,15 +38,12 @@ $dimensions--loading: 100px;
 .loading {
   width: $dimensions--loading;
   height: $dimensions--loading;
-  position: fixed;
-  top: calc(50vh - #{$dimensions--loading});
-  left: calc(50% - #{$dimensions--loading});
+  position: relative;
   border: 60px solid transparent;
   background-color: $white;
-  z-index: 9999;
   opacity: 0;
   transition: opacity 0.4s linear;
-  // pointer-events: none;
+//   pointer-events: none;
 }
 
 .loading--show {
