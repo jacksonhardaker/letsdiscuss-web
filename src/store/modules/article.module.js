@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { ARTICLE } from '../mutation.const';
+import { ARTICLE, LOADING } from '../mutation.const';
 
 const state = {
   status: '',
@@ -28,11 +28,14 @@ const actions = {
   ['getCurrentArticle']: ({ commit, dispatch }, params) => {
     return new Promise((resolve, reject) => {
       commit(ARTICLE.request);
+      commit(LOADING.begin);
 
       axios
         .get(`/article/${params.alias}/${params.date}/${params.slug}`)
         .then(res => {
           commit(ARTICLE.success, res.data);
+          commit(LOADING.finish);
+
           resolve(res);
         })
         .catch(err => {

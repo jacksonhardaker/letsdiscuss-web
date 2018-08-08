@@ -1,6 +1,6 @@
 import Cookies from 'js-cookie';
 import axios from 'axios';
-import { AUTH } from '../mutation.const';
+import { AUTH, LOADING } from '../mutation.const';
 
 const state = {
   token: Cookies.get('LD-user-token') || null,
@@ -39,6 +39,7 @@ const actions = {
   ['facebookLogin']: ({ commit, dispatch }) => {
     return new Promise((resolve, reject) => {
       commit(AUTH.facebook.request);
+      commit(LOADING.begin);
 
       const callback = received => {
         let token = received.data.token;
@@ -47,6 +48,7 @@ const actions = {
 
         axios.defaults.headers.common['Authorization'] = token;
         commit(AUTH.facebook.success, token);
+        commit(LOADING.finish);
         dispatch('CURRENT_PERSON_REQUEST', token);
         
         resolve(token);
@@ -71,6 +73,7 @@ const actions = {
   ['googleLogin']: ({ commit, dispatch }) => {
     return new Promise((resolve, reject) => {
       commit(AUTH.google.request);
+      commit(LOADING.begin);
 
       const callback = received => {
         let token = received.data.token;
@@ -79,6 +82,7 @@ const actions = {
 
         axios.defaults.headers.common['Authorization'] = token;
         commit(AUTH.google.success, token);
+        commit(LOADING.finish);
         dispatch('CURRENT_PERSON_REQUEST', token);
         
         resolve(token);
