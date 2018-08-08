@@ -26,3 +26,9 @@ $font-sans-condensed: 'Open Sans Condensed', sans-serif;
     font-style: italic;
     font-weight: 700;
 }
+
+html, body {
+    font-family: $font-sans;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}

@@ -16,3 +16,8 @@ export const AUTH = {
     error: 'GOOGLE_AUTH_ERROR'
   }
 };
+
+export const LOADING = {
+    begin: 'LOADING_BEGIN',
+    finish: 'LOADING_FINISH'
+}
