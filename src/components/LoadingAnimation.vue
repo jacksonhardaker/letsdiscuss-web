@@ -1,5 +1,5 @@
 <template>
-    <aside class="loading" v-bind:class=" { 'loading--animate': animate, 'loading--show': show }">
+    <aside class="loading" v-bind:class=" { 'animate': animate, 'show': show }">
         <em class="loading-symbol">#</em>
         <em class="loading-symbol">*</em>
         <em class="loading-symbol">@</em>
@@ -46,11 +46,11 @@ $dimensions--loading: 100px;
   border-radius: 10px;
 }
 
-.loading--show {
+.loading.show {
   opacity: 1;
 }
 
-.loading--animate > .loading-symbol {
+.loading.animate > .loading-symbol {
   animation: explode 2s ease-in-out infinite;
 }
 
