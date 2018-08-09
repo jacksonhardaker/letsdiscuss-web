@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: 'BaseURL',
+  name: 'BaseUrl',
   props: ['src'],
   computed: {
     domain() {

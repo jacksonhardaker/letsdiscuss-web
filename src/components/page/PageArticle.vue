@@ -1,17 +1,13 @@
 <template>
     <article :class="$options.name">
-      <img :src="image" :alt="title"/>
-      <BaseURL v-bind:src="url"/>
-      <h1>{{title}}</h1>
-      <p>{{description}}</p>
-      <aside>by {{author}}</aside>
+      <article-card v-bind:image="image" v-bind:title="title" v-bind:description="description" v-bind:url="url" v-bind:author="author"/>
   </article>
 </template>
 
 <script>
 import { mapGetters, mapActions } from 'vuex';
 
-import BaseURL from '../BaseURL';
+import ArticleCard from '../cards/ArticleCard';
 
 export default {
   name: `PageArticle`,
@@ -49,7 +45,7 @@ export default {
     this.getCurrentArticle(this.$route.params);
   },
   components: {
-    BaseURL
+    ArticleCard
   }
 };
 </script>
