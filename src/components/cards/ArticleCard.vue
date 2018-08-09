@@ -1,11 +1,11 @@
 <template>
-<section class="articleCard flex--col-cc">
+<section class="articleCard card shadow-2 flex--col-cc">
     <a class="articleCard--link" target="_blank" :href="url">
         <img class="articleCard--image" :src="image" :alt="title"/>
-        <base-url class="font-caption" v-bind:src="url"/>
+        <base-url class="font-overline" v-bind:src="url"/>
     </a>
     <h1 class="font-h5">{{title}}</h1>
-    <aside class="font-overline">by {{author}}</aside>
+    <aside class="font-caption">by {{author}}</aside>
     <hr/>
     <p class="articleCard--desc font-body-2">{{description}}</p>
     </section>
