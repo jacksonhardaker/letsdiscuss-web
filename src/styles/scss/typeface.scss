@@ -3,28 +3,155 @@
 $font-sans: 'Open Sans', sans-serif;
 $font-sans-condensed: 'Open Sans Condensed', sans-serif;
 
+/* Sizes */
+$fontSize-micro: 0.5em;
+$fontSize-smallest: 0.625rem;
+$fontSize-smaller: 0.75rem;
+$fontSize-small: 0.875rem;
+$fontSize-base: 16px;
+$fontSize-large: 1.25rem;
+$fontSize-larger: 1.5rem;
+$fontSize-largest: 2.125rem;
+$fontSize-kilo: 3rem;
+$fontSize-mega: 3.75rem;
+$fontSize-giga: 6rem;
+
+/* Weights */
+$fontWeight-1: 100;
+$fontWeight-2: 200;
+$fontWeight-3: 300;
+$fontWeight-4: 400;
+$fontWeight-5: 500;
+$fontWeight-6: 600;
+$fontWeight-7: 700;
+$fontWeight-8: 800;
+$fontWeight-9: 900;
+
+$fontWeight-boldest: $fontWeight-9;
+$fontWeight-bolder: $fontWeight-8;
+$fontWeight-bold: $fontWeight-7;
+$fontWeight-mediumplus: $fontWeight-6;
+$fontWeight-medium: $fontWeight-5;
+$fontWeight-normal: $fontWeight-4;
+$fontWeight-light: $fontWeight-3;
+$fontWeight-lighter: $fontWeight-2;
+$fontWeight-lightest: $fontWeight-1;
+
+.font-h1, h1 {
+    font-family: $font-sans;
+    font-weight: $fontWeight-light;
+    font-size: $fontSize-giga;
+    letter-spacing: -1.5px;
+}
+
+.font-h2, h2 {
+    font-family: $font-sans;
+    font-weight: $fontWeight-light;
+    font-size: $fontSize-mega;
+    letter-spacing: -0.5px;
+}
+
+.font-h3, h3 {
+    font-family: $font-sans;
+    font-weight: $fontWeight-normal;
+    font-size: $fontSize-kilo;
+    letter-spacing: 0px;
+}
+
+.font-h4, h4 {
+    font-family: $font-sans;
+    font-weight: $fontWeight-normal;
+    font-size: $fontSize-largest;
+    letter-spacing: 0.25px;
+}
+
+.font-h5, h5 {
+    font-family: $font-sans;
+    font-weight: $fontWeight-normal;
+    font-size: $fontSize-larger;
+    letter-spacing: 0px;
+}
+
+.font-h6, h6 {
+    font-family: $font-sans;
+    font-weight: $fontWeight-medium;
+    font-size: $fontSize-large;
+    letter-spacing: 0.15px;
+}
+
+.font-subtitle-1 {
+    font-family: $font-sans;
+    font-weight: $fontWeight-normal;
+    font-size: $fontSize-base;
+    letter-spacing: 0.15px;
+}
+
+.font-subtitle-2 {
+    font-family: $font-sans;
+    font-weight: $fontWeight-medium;
+    font-size: $fontSize-small;
+    letter-spacing: 0.1px;
+}
+
+.font-body-1 {
+    font-family: $font-sans;
+    font-weight: $fontWeight-normal;
+    font-size: $fontSize-base;
+    letter-spacing: 0.5px;
+}
+
+.font-body-2 {
+    font-family: $font-sans;
+    font-weight: $fontWeight-normal;
+    font-size: $fontSize-small;
+    letter-spacing: 0.25px;
+}
+
+.font-button {
+    font-family: $font-sans;
+    font-weight: $fontWeight-medium;
+    font-size: $fontSize-small;
+    text-transform: uppercase;
+    letter-spacing: 0.75px;
+}
+
+.font-caption {
+    font-family: $font-sans;
+    font-weight: $fontWeight-normal;
+    font-size: $fontSize-smaller;
+    letter-spacing: 0.4px;
+}
+
+.font-overline {
+    font-family: $font-sans;
+    font-weight: $fontWeight-normal;
+    font-size: $fontSize-smallest;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
 .font-sansN4 {
     font-family: $font-sans;
     font-style: normal;
-    font-weight: 400;
+    font-weight: $fontWeight-4;
 }
 
 .font-sansN7 {
     font-family: $font-sans;
     font-style: normal;
-    font-weight: 700;
+    font-weight: $fontWeight-7;
 }
 
 .font-sansI4 {
     font-family: $font-sans;
     font-style: italic;
-    font-weight: 400;
+    font-weight: $fontWeight-4;
 }
 
 .font-sansI7 {
     font-family: $font-sans;
     font-style: italic;
-    font-weight: 700;
+    font-weight: $fontWeight-7;
 }
 
 html, body {
