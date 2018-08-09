@@ -1,5 +1,5 @@
 <template>
-    <article :class="$options.name">
+    <article class="pageArticle flex--col-cc">
       <article-card v-bind:image="image" v-bind:title="title" v-bind:description="description" v-bind:url="url" v-bind:author="author"/>
   </article>
 </template>
@@ -49,3 +49,6 @@ export default {
   }
 };
 </script>
+
+<style lang="scss" scoped>
+</style>
