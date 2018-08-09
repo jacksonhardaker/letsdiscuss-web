@@ -17,21 +17,21 @@ const mutations = {
     state.status = 'loading';
   },
   [AUTH.facebook.success]: (state, token) => {
-    state.status = 'success'
-    state.token = token
+    state.status = 'success';
+    state.token = token;
   },
-  [AUTH.facebook.error]: (state) => {
-    state.status = 'error'
+  [AUTH.facebook.error]: state => {
+    state.status = 'error';
   },
   [AUTH.google.request]: state => {
     state.status = 'loading';
   },
   [AUTH.google.success]: (state, token) => {
-    state.status = 'success'
-    state.token = token
+    state.status = 'success';
+    state.token = token;
   },
-  [AUTH.google.error]: (state) => {
-    state.status = 'error'
+  [AUTH.google.error]: state => {
+    state.status = 'error';
   }
 };
 
@@ -49,8 +49,8 @@ const actions = {
         axios.defaults.headers.common['Authorization'] = token;
         commit(AUTH.facebook.success, token);
         commit(LOADING.finish);
-        dispatch('CURRENT_PERSON_REQUEST', token);
-        
+        dispatch('getCurrentPerson', token);
+
         resolve(token);
 
         // Remove event listener.
@@ -63,11 +63,10 @@ const actions = {
       let baseUrl = process.env.API_URL;
 
       window.open(
-        `${ baseUrl }/oauth/facebook`,
+        `${baseUrl}/oauth/facebook`,
         'pop',
         'width=600, height=640, scrollbars=no'
       );
-
     });
   },
   ['googleLogin']: ({ commit, dispatch }) => {
@@ -83,8 +82,8 @@ const actions = {
         axios.defaults.headers.common['Authorization'] = token;
         commit(AUTH.google.success, token);
         commit(LOADING.finish);
-        dispatch('CURRENT_PERSON_REQUEST', token);
-        
+        dispatch('getCurrentPerson', token);
+
         resolve(token);
 
         // Remove event listener.
@@ -97,11 +96,10 @@ const actions = {
       let baseUrl = process.env.API_URL;
 
       window.open(
-        `${ baseUrl }/oauth/google`,
+        `${baseUrl}/oauth/google`,
         'pop',
         'width=600, height=640, scrollbars=no'
       );
-
     });
   }
 };
