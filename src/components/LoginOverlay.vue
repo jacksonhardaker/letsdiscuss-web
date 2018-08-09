@@ -1,5 +1,5 @@
 <template>
-    <section v-if="!isAuthenticated" class="loginOverlay">
+    <section v-if="!isAuthenticated" class="loginOverlay flex--col-cc">
         <facebook-login-button/>
         <google-login-button/>
     </section>
@@ -37,9 +37,5 @@ export default {
   height: 100vh;
   z-index: $zIndex-9--overlay;
   background-color: $black-t7;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
 }
 </style>

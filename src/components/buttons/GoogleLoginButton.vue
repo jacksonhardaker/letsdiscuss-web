@@ -1,5 +1,5 @@
 <template>
-    <button v-on:click="login()"  class="btn btn--fixed-w-wide btn--google font-sansN7"><i class="fa fa-google fa-2x"></i> Login <span class="font-sansN4">with</span> Google</button>
+    <button v-on:click="login()"  class="btn btn--fixed-w-wide btn--tt-n btn--google font-sansN7"><i class="fa fa-google fa-2x"></i> Login <span class="font-sansN4">with</span> Google</button>
 </template>
 
 <script>
