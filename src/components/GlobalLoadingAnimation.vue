@@ -1,6 +1,6 @@
 <template>
   <div class="global-loading">
-    <LoadingAnimation :show="show" :animate="animate"/>
+    <loading-animation :show="show" :animate="animate"/>
   </div>
 </template>
 
