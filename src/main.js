@@ -21,8 +21,11 @@ axios.defaults.headers.post['Content-Type'] =
 axios.defaults.crossDomain = true;
 
 const token = Cookies.get('LD-user-token') || null;
+
+// User is logged in.
 if (token) {
   axios.defaults.headers.common['Authorization'] = token;
+  store.dispatch('getCurrentPerson');
 }
 
 /* eslint-disable no-new */
