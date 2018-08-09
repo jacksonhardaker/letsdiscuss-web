@@ -43,13 +43,15 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '../styles/scss/z-index.scss';
+
 $dimensions--loading: 100px;
 
 .global-loading {
   position: fixed;
   top: calc(50vh - #{$dimensions--loading});
   left: calc(50% - #{$dimensions--loading});
-  z-index: 9999;
+  z-index: $zIndex-8--loadingAnimation;
 }
 </style>
 
