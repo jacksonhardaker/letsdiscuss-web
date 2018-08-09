@@ -14,17 +14,18 @@ export default {
 
 <style lang="scss" scoped>
 .personAvatar {
-  border-radius: 50%;
-  width: 60px;
-  height: 60px;
+  width: 44px;
+  height: 44px;
   overflow: hidden;
   margin: 0;
+  padding: 8px;
 }
 
 .personAvatar--picture {
     object-fit: cover;
     width: 100%;
     height: 100%;
+    border-radius: 50%;
 }
 </style>
 
