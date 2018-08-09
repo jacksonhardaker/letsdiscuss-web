@@ -3,6 +3,8 @@
 @import 'colors.scss';
 @import 'typeface.scss';
 @import 'buttons.scss';
+@import 'flex.scss';
+@import 'shadow.scss';
 
 $fa-font-path: "~font-awesome/fonts";
 @import '~font-awesome/scss/font-awesome.scss';
@@ -20,11 +22,10 @@ $fa-font-path: "~font-awesome/fonts";
    ========================================================================== */
 
    html {
-    color: #222;
-    font-size: 1em;
+    color: $black;
     line-height: 1.4;
     max-width: 100%;
-    overflow: hidden;
+    @extend .font-body-1;
 }
 
 /*
@@ -55,9 +56,10 @@ hr {
     display: block;
     height: 1px;
     border: 0;
-    border-top: 1px solid #ccc;
+    border-top: 1px solid $black-t3;
     margin: 1em 0;
     padding: 0;
+    width: 66%;
 }
 
 /*
@@ -99,31 +101,10 @@ textarea {
 
 .browserupgrade {
     margin: 0.2em 0;
-    background: #ccc;
-    color: #000;
+    background: $black-t3;
+    color: $black;
     padding: 0.2em 0;
 }
-
-/* ==========================================================================
-   Author's custom styles
-   ========================================================================== */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* ==========================================================================
    Helper classes
    ========================================================================== */
