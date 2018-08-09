@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { PERSON } from '../mutation.const';
 
 const state = {
   currentPerson: null,
@@ -10,19 +11,32 @@ const getters = {
   currentPerson: state => state.currentPerson
 };
 
-const mutations = {};
+const mutations = {
+  [PERSON.request]: state => {
+    state.status = 'loading';
+  },
+  [PERSON.success]: (state, person) => {
+    state.status = 'success';
+    state.currentPerson = person;
+  },
+  [PERSON.error]: state => {
+    state.status = 'error';
+  }
+};
 
 const actions = {
-  ['CURRENT_PERSON_REQUEST']: ({ commit, dispatch }) => {
+  ['getCurrentPerson']: ({ commit, dispatch }) => {
     return new Promise((resolve, reject) => {
-      commit('CURRENT_PERSON_REQUEST');
+      commit(PERSON.request);
 
       axios
         .get('/person')
         .then(res => {
+          commit(PERSON.success, res.data);
           console.log(res);
         })
         .catch(err => {
+          commit(PERSON.error);
           console.log(err);
         });
     });
