@@ -31,7 +31,7 @@ export default {
 
 <style lang="scss">
 .app {
-  margin-top: 30px;
+  margin: 30px 0;
   filter: blur(0);
   transition: filter 0.4s ease-in;
 }
