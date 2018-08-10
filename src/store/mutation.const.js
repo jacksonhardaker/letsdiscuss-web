@@ -33,3 +33,16 @@ export const ALIAS = {
   success: 'CURRENT_ALIAS_SUCCESS',
   fail: 'CURRENT_ALIAS_FAIL'
 };
+
+export const COMMENTS = {
+  leave: {
+    request: 'LEAVE_COMMENT_REQUEST',
+    success: 'LEAVE_COMMENT_SUCCESS',
+    error: 'LEAVE_COMMENT_ERROR'
+  },
+  get: {
+    request: 'GET_COMMENTS_REQUEST',
+    success: 'GET_COMMENTS_SUCCESS',
+    error: 'GET_COMMENTS_ERROR'
+  }
+};

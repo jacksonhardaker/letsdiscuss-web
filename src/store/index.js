@@ -12,6 +12,7 @@ import auth from './modules/auth.module.js';
 import person from './modules/person.module.js';
 import article from './modules/article.module.js';
 import alias from './modules/alias.module.js';
+import comment from './modules/comment.module.js';
 
 export default new Vuex.Store({
   // Making sure that we're doing
@@ -26,6 +27,7 @@ export default new Vuex.Store({
     auth,
     person,
     article,
-    alias
+    alias,
+    comment
   }
 });
