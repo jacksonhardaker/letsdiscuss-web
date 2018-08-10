@@ -37,6 +37,7 @@ const actions = {
           commit(LOADING.finish);
 
           dispatch('getCurrentAliasForArticle', res.data);
+          dispatch('getAllComments', res.data);
 
           resolve(res.data);
         })

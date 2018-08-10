@@ -1,6 +1,7 @@
 <template>
   <article class="pageArticle flex--col-cc">
     <article-card v-bind:image="image" v-bind:title="title" v-bind:description="description" v-bind:url="url" v-bind:author="author"/>
+    <comment-list :comments="articleComments"/>
     <comment-input :article="article" :alias="alias"/>
   </article>
 </template>
@@ -10,6 +11,7 @@ import { mapGetters, mapActions } from 'vuex';
 
 import ArticleCard from '../cards/ArticleCard';
 import CommentInput from '../input/CommentInput';
+import CommentList from '../comments/CommentList';
 
 export default {
   name: `PageArticle`,
@@ -17,7 +19,8 @@ export default {
     ...mapGetters({
       status: 'getArticleStatus',
       article: 'getCurrentArticle',
-      alias: 'currentAlias'
+      alias: 'currentAlias',
+      articleComments: 'articleComments'
     }),
     image() {
       return this.article
@@ -49,7 +52,8 @@ export default {
   },
   components: {
     ArticleCard,
-    CommentInput
+    CommentInput,
+    CommentList
   }
 };
 </script>

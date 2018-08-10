@@ -24,8 +24,8 @@ export const PERSON = {
 };
 
 export const LOADING = {
-    begin: 'LOADING_BEGIN',
-    finish: 'LOADING_FINISH'
+  begin: 'LOADING_BEGIN',
+  finish: 'LOADING_FINISH'
 };
 
 export const ALIAS = {
@@ -41,8 +41,10 @@ export const COMMENTS = {
     error: 'LEAVE_COMMENT_ERROR'
   },
   get: {
-    request: 'GET_COMMENTS_REQUEST',
-    success: 'GET_COMMENTS_SUCCESS',
-    error: 'GET_COMMENTS_ERROR'
+    all: {
+      request: 'GETALL_COMMENTS_REQUEST',
+      success: 'GETALL_COMMENTS_SUCCESS',
+      error: 'GETALL_COMMENTS_ERROR'
+    }
   }
 };

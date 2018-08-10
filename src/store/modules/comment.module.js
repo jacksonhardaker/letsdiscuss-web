@@ -21,6 +21,16 @@ const mutations = {
   },
   [COMMENTS.leave.error]: state => {
     state.status = 'error';
+  },
+  [COMMENTS.get.all.request]: state => {
+      state.status = 'loading';
+  },
+  [COMMENTS.get.all.success]: (state, comments) => {
+      state.status = 'success';
+      state.articleComments = comments;
+  },
+  [COMMENTS.get.all.error]: state => {
+      state.status = 'error';
   }
 };
 
@@ -50,6 +60,23 @@ const actions = {
 
           reject(err);
         });
+    });
+  },
+  ['getAllComments']: ({ commit, dispatch }, article) => {
+    return new Promise((resolve, reject) => {
+        commit(COMMENTS.get.all.request);
+
+        axios
+            .get(`/comments/${article.id}`)
+            .then(res => {
+                commit(COMMENTS.get.all.success, res.data);
+                
+                resolve(res.data);
+            })
+            .catch(err => {
+                commit(COMMENTS.get.all.error);
+                reject(err);
+            })
     });
   }
 };
