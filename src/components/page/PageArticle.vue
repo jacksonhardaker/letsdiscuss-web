@@ -35,14 +35,15 @@ export default {
     }
   },
   methods: {
-    ...mapActions(['getCurrentArticle'])
+    ...mapActions(['getCurrentArticle', 'getCurrentAliasForArticle'])
   },
-  created: function() {
+  created: async function() {
     console.log(
       `[Attempting to load article... ${decodeURIComponent(this.$route.path)}]`
     );
 
-    this.getCurrentArticle(this.$route.params);
+    let article = await this.getCurrentArticle(this.$route.params);
+    this.getCurrentAliasForArticle(article);
   },
   components: {
     ArticleCard
