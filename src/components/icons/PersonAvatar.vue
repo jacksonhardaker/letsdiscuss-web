@@ -26,6 +26,8 @@ export default {
 .personAvatar {
   width: 44px;
   height: 44px;
+  min-width: 44px;
+  min-height: 44px;
   overflow: hidden;
   margin: 0;
   padding: 8px;

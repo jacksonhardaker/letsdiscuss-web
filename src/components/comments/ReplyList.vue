@@ -1,5 +1,5 @@
 <template>
-    <ul class="replyList">
+    <ul class="replyList list--noBullet">
         <li class="replyList--item" v-for="reply in replies" :key="reply.id">
             <reply-item :reply="reply"/>
         </li>
@@ -19,5 +19,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '../../styles/scss/colors.scss';
 
+.replyList {
+    padding-left: 18px;
+    margin-left: 18px;
+    border-left: 1px solid $black-t4;
+}
 </style>

@@ -1,6 +1,6 @@
 <template>
-    <ul class="commentsList">
-        <li class="commentsList--item" v-for="comment in comments" :key="comment.id">
+    <ul class="commentList list--noBullet">
+        <li class="commentList--item" v-for="comment in comments" :key="comment.id">
             <comment-item :comment="comment"/>
         </li>
     </ul>
@@ -10,7 +10,7 @@
 import CommentItem from './CommentItem';
 
 export default {
-    name: 'CommentsList',
+    name: 'CommentList',
     props: ['comments'],
     components: {
         CommentItem
@@ -19,5 +19,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
+.commentList {
+  width: 500px;
+  max-width: 100%;
+}
 </style>

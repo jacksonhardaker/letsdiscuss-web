@@ -52,6 +52,7 @@ $dimensions--loading: 100px;
   top: calc(50vh - #{$dimensions--loading});
   left: calc(50% - #{$dimensions--loading});
   z-index: $zIndex-8--loadingAnimation;
+  pointer-events: none;
 }
 </style>
 

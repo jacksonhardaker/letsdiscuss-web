@@ -1,8 +1,8 @@
 <template>
     <section class="commentItem">
-        <div class="commentItem--content">
-            <person-avatar :picture="comment.alias.pictureUrl" :name="comment.alias.name"/>
-            <p>{{comment.body}}</p>
+        <div class="commentItem--content flex--row-ss">
+            <person-avatar class="commentItem--avatar" :picture="comment.alias.pictureUrl" :name="comment.alias.name"/>
+            <p class="commentItem--body">{{comment.body}}</p>
         </div>
         <reply-list class="commentItem--replies" :replies="comment.replies"/>
     </section>
@@ -23,5 +23,4 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
 </style>
