@@ -33,11 +33,9 @@ const actions = {
         .get('/person')
         .then(res => {
           commit(PERSON.success, res.data);
-          console.log(res);
         })
         .catch(err => {
-          commit(PERSON.error);
-          console.log(err);
+          commit(PERSON.error, err);
         });
     });
   }
