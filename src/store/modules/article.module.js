@@ -36,7 +36,9 @@ const actions = {
           commit(ARTICLE.success, res.data);
           commit(LOADING.finish);
 
-          resolve(res);
+          dispatch('getCurrentAliasForArticle', res.data);
+
+          resolve(res.data);
         })
         .catch(err => {
           commit(ARTICLE.error);
