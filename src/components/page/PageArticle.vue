@@ -1,6 +1,7 @@
 <template>
-    <article class="pageArticle flex--col-cc">
-      <article-card v-bind:image="image" v-bind:title="title" v-bind:description="description" v-bind:url="url" v-bind:author="author"/>
+  <article class="pageArticle flex--col-cc">
+    <article-card v-bind:image="image" v-bind:title="title" v-bind:description="description" v-bind:url="url" v-bind:author="author"/>
+    <comment-input :article="article" :alias="alias"/>
   </article>
 </template>
 
@@ -8,13 +9,15 @@
 import { mapGetters, mapActions } from 'vuex';
 
 import ArticleCard from '../cards/ArticleCard';
+import CommentInput from '../input/CommentInput';
 
 export default {
   name: `PageArticle`,
   computed: {
     ...mapGetters({
       status: 'getArticleStatus',
-      article: 'getCurrentArticle'
+      article: 'getCurrentArticle',
+      alias: 'currentAlias'
     }),
     image() {
       return this.article
@@ -35,7 +38,7 @@ export default {
     }
   },
   methods: {
-    ...mapActions(['getCurrentArticle', 'getCurrentAliasForArticle'])
+    ...mapActions(['getCurrentArticle'])
   },
   created: async function() {
     console.log(
@@ -43,10 +46,10 @@ export default {
     );
 
     let article = await this.getCurrentArticle(this.$route.params);
-    this.getCurrentAliasForArticle(article);
   },
   components: {
-    ArticleCard
+    ArticleCard,
+    CommentInput
   }
 };
 </script>
