@@ -25,14 +25,15 @@ const mutations = {
 };
 
 const actions = {
-  ['getCurrentAliasForArticle']: ({ commit, dispatch }, params) => {
+  ['getCurrentAliasForArticle']: ({ commit, dispatch }, article) => {
     return new Promise((resolve, reject) => {
       commit(ALIAS.request);
 
       axios
-        .get(`/alias/current/${params.data.id}`)
+        .get(`/alias/current/${article.id}`)
         .then(res => {
           commit(ALIAS.success, res.data);
+          resolve(res.data);
         })
         .catch(err => {
           commit(ALIAS.error, err);
