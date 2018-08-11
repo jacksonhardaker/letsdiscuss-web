@@ -7,8 +7,12 @@
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    @extend .font-button;
     background-color: $blue;
+    @include font-button;
+}
+.btn--large {
+    padding: 12px 21px;
+    font-size: $fontSize-largest;
 }
 
 .btn--tt-n {

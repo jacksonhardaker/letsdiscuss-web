@@ -107,14 +107,32 @@ $fontWeight-lightest: $fontWeight-1;
     letter-spacing: 0.25px;
 }
 
+// Font Button
+$font-button: (
+    font-family: $font-sans,
+    font-weight: $fontWeight-medium,
+    font-size: $fontSize-small,
+    text-transform: uppercase,
+    letter-spacing: 0.75px
+);
+
 .font-button {
-    font-family: $font-sans;
-    font-weight: $fontWeight-medium;
-    font-size: $fontSize-small;
-    text-transform: uppercase;
-    letter-spacing: 0.75px;
+    font-family: map-get($font-button, font-family);
+    font-weight: map-get($font-button, font-weight);
+    font-size: map-get($font-button, font-size);
+    text-transform: map-get($font-button, text-transform);
+    letter-spacing: map-get($font-button, letter-spacing);
 }
 
+@mixin font-button {
+    font-family: map-get($font-button, font-family);
+    font-weight: map-get($font-button, font-weight);
+    font-size: map-get($font-button, font-size);
+    text-transform: map-get($font-button, text-transform);
+    letter-spacing: map-get($font-button, letter-spacing);
+}
+
+// Font Caption
 .font-caption {
     font-family: $font-sans;
     font-weight: $fontWeight-normal;
@@ -122,6 +140,7 @@ $fontWeight-lightest: $fontWeight-1;
     letter-spacing: 0.4px;
 }
 
+// Font-overline
 .font-overline {
     font-family: $font-sans;
     font-weight: $fontWeight-normal;
