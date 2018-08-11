@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <page-header/>
+    <page-header class="app--pageHeader" v-bind:class=" { 'blurred': showLoginOverlay }"/>
     <router-view class="app" v-bind:class=" { 'blurred': showLoginOverlay }"/>
     <global-loading-animation/>
     <login-overlay :showLoginOverlay="showLoginOverlay"/>
@@ -38,7 +38,8 @@ export default {
   transition: filter 0.4s ease-in;
 }
 
-.app.blurred {
+.app.blurred, .app--pageHeader.blurred {
   filter: blur(3px);
 }
+
 </style>
