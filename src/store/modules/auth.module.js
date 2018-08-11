@@ -32,6 +32,16 @@ const mutations = {
   },
   [AUTH.google.error]: state => {
     state.status = 'error';
+  },
+  [AUTH.logout.request]: state => {
+    state.status = 'loading';
+  },
+  [AUTH.logout.success]: (state) => {
+    state.status = 'success';
+    state.token = null;
+  },
+  [AUTH.logout.error]: state => {
+    state.status = 'error';
   }
 };
 
@@ -49,6 +59,7 @@ const actions = {
         axios.defaults.headers.common['Authorization'] = token;
         commit(AUTH.facebook.success, token);
         commit(LOADING.finish);
+        dispatch('hideLoginModal');
         dispatch('getCurrentPerson', token);
 
         resolve(token);
@@ -82,6 +93,7 @@ const actions = {
         axios.defaults.headers.common['Authorization'] = token;
         commit(AUTH.google.success, token);
         commit(LOADING.finish);
+        dispatch('hideLoginModal');
         dispatch('getCurrentPerson', token);
 
         resolve(token);
@@ -100,6 +112,30 @@ const actions = {
         'pop',
         'width=600, height=640, scrollbars=no'
       );
+    });
+  },
+  ['logout']: ({ commit, dispatch }) => {
+    return new Promise((resolve, reject) => {
+      commit(AUTH.logout.request);
+      commit(LOADING.begin);
+
+      axios
+        .put('/oauth/logout')
+        .then(res => {
+          commit(AUTH.logout.success);
+          commit(LOADING.finish);
+
+          Cookies.remove('LD-user-token');
+          axios.defaults.headers.common['Authorization'] = null;
+
+          resolve(res);
+        })
+        .catch(err => {
+          commit(AUTH.logout.error, err);
+          commit(LOADING.finish);
+
+          reject(err);
+        });
     });
   }
 };

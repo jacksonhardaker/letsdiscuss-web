@@ -1,4 +1,4 @@
-import { LOADING } from './mutation.const';
+import { LOADING, LOGIN_MODAL } from './mutation.const';
 
 export default {
     [LOADING.begin]: state => {
@@ -6,5 +6,11 @@ export default {
     },
     [LOADING.finish]: (state) => {
       state.loading = false;
+    },
+    [LOGIN_MODAL.show]: state => {
+      state.showLoginModal = true;
+    },
+    [LOGIN_MODAL.hide]: state => {
+      state.showLoginModal = false;
     }
   };

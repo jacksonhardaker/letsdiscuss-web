@@ -1,4 +1,4 @@
-import { LOADING } from './mutation.const';
+import { LOADING, LOGIN_MODAL } from './mutation.const';
 
 export default {
     ['showGlobalLoading']: ({ commit, dispatch }) => {
@@ -6,5 +6,11 @@ export default {
     },
     ['hideGlobalLoading']: ({commit, dispatch }) => {
         return commit(LOADING.finish);
+    },
+    ['showLoginModal']: ({commit, dispatch}) => {
+      return commit(LOGIN_MODAL.show);
+    },
+    ['hideLoginModal']: ({commit, dispatch}) => {
+      return commit(LOGIN_MODAL.hide);
     }
   };

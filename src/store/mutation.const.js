@@ -14,6 +14,11 @@ export const AUTH = {
     request: 'GOOGLE_AUTH_REQUEST',
     success: 'GOOGLE_AUTH_SUCCESS',
     error: 'GOOGLE_AUTH_ERROR'
+  },
+  logout: {
+    request: 'LOGOUT_AUTH_REQUEST',
+    success: 'LOGOUT_AUTH_SUCCESS',
+    error: 'LOGOUT_AUTH_ERROR'
   }
 };
 
@@ -27,6 +32,11 @@ export const LOADING = {
   begin: 'LOADING_BEGIN',
   finish: 'LOADING_FINISH'
 };
+
+export const LOGIN_MODAL = {
+  show: 'LOGIN_MODAL_SHOW',
+  hide: 'LOGIN_MODAL_HIDE'
+}
 
 export const ALIAS = {
   request: 'CURRENT_ALIAS_REQUEST',
