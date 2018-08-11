@@ -12,17 +12,26 @@ export default new Router({
     {
       path: '/',
       name: 'home',
-      component: PageHome
+      component: PageHome,
+      meta: {
+        guest: true
+      }
     },
     {
       path: '/about',
       name: 'about',
-      component: PageAbout
+      component: PageAbout,
+      meta: {
+        guest: true
+      }
     },
     {
       path: '/article/:alias/:date/:slug',
       name: 'article',
-      component: PageArticle
+      component: PageArticle,
+      meta: {
+        guest: false
+      }
     }
   ],
   mode: 'history'
