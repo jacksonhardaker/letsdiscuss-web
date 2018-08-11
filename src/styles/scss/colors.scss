@@ -33,3 +33,11 @@ $black-t4: rgba(58, 58, 58, 0.4);
 $black-t3: rgba(58, 58, 58, 0.3);
 $black-t2: rgba(58, 58, 58, 0.2);
 $black-t1: rgba(58, 58, 58, 0.1);
+
+// Blues
+$blue: #caebf2;
+$blue-light: lighten($blue, 6%);
+
+// Reds
+$red: #ff3b3f;
+$red-light: lighten($red, 24%);
