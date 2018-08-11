@@ -1,5 +1,5 @@
 <template>
-    <section v-if="!isAuthenticated" class="loginOverlay flex--col-cc">
+    <section v-if="showLoginOverlay" class="loginOverlay flex--col-cc">
         <facebook-login-button/>
         <google-login-button/>
     </section>
@@ -13,11 +13,7 @@ import GoogleLoginButton from './buttons/GoogleLoginButton';
 
 export default {
   name: 'LoginOverlay',
-  computed: {
-      ...mapGetters(
-          ['isAuthenticated']
-      )
-  },
+  props: ['showLoginOverlay'],
   components: {
     FacebookLoginButton,
     GoogleLoginButton
