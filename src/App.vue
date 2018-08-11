@@ -1,9 +1,9 @@
 <template>
   <div id="app">
     <page-header/>
-    <router-view class="app" v-bind:class=" { 'blurred': !isAuthenticated }"/>
+    <router-view class="app" v-bind:class=" { 'blurred': showLoginOverlay }"/>
     <global-loading-animation/>
-    <login-overlay/>
+    <login-overlay :showLoginOverlay="showLoginOverlay"/>
   </div>
 </template>
 
@@ -18,8 +18,11 @@ export default {
   name: 'App',
   computed: {
       ...mapGetters(
-          ['isAuthenticated']
-      )
+          ['isAuthenticated', 'displayLoginModal']
+      ),
+      showLoginOverlay() {
+        return this.displayLoginModal || !this.isAuthenticated && !this.$router.currentRoute.meta.guest;
+      }
   },
   components: {
     GlobalLoadingAnimation,
@@ -31,12 +34,11 @@ export default {
 
 <style lang="scss">
 .app {
-  margin: 30px 0;
   filter: blur(0);
   transition: filter 0.4s ease-in;
 }
 
 .app.blurred {
-  filter: blur(5px);
+  filter: blur(3px);
 }
 </style>
