@@ -1,9 +1,14 @@
 <template>
-    <header class="pageHeader shadow-1" v-if="isAuthenticated">
-      <person-avatar :picture="personPicture" :name="personName"/>
-      <span class="font-h4">=</span>
-      <person-avatar :picture="aliasPicture" :name="aliasName"/>
-      <button v-on:click="logout()" class="btn font-button">Logout</button>
+    <header class="pageHeader">
+      <div class="pageHeader--loggedIn flex--row-sc" v-if="isAuthenticated">
+        <person-avatar :picture="personPicture" :name="personName"/>
+        <span class="font-h4">=</span>
+        <person-avatar :picture="aliasPicture" :name="aliasName"/>
+        <button v-on:click="logout()" class="pageHeader--logoutBtn btn font-button">Logout</button>
+      </div>
+      <div class="pageHeader--loggedOut flex--row-ec" v-if="!isAuthenticated">
+        <button v-on:click="login()" class="btn font-button">Login</button>
+      </div>
     </header>
 </template>
 
@@ -30,7 +35,10 @@ export default {
     }
   },
   methods: {
-    ...mapActions(['logout'])
+    ...mapActions({
+      logout: 'logout',
+      login: 'showLoginModal'
+    })
   },
   components: {
     PersonAvatar
@@ -39,11 +47,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.pageHeader {
+
+.pageHeader--loggedIn, .pageHeader--loggedOut {
   height: 60px;
   width: 100%;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
+}
+
+.pageHeader--logoutBtn {
+  margin: 0 0 0 auto;
 }
 </style>
