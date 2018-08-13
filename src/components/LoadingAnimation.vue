@@ -42,7 +42,6 @@ $dimensions--loading: 100px;
   border: 60px solid transparent;
   opacity: 0;
   transition: opacity 0.4s linear;
-  border-radius: 10px;
   pointer-events: none;
 }
 
