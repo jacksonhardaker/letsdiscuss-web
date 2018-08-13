@@ -33,20 +33,29 @@ export default {
   methods: {
     ...mapActions({
       showLoginModal: 'showLoginModal',
-      hideLoginModal: 'hideLoginModal'
+      hideLoginModal: 'hideLoginModal',
+      submitNewArticle: 'submitNewArticle'
     }),
     submit() {
       this.loading = true;
 
       if (!this.isAuthenticated) {
+        console.log(
+          '[Not logged it, so cannot submit article... Logging in...]'
+        );
         this.showLoginModal();
+      } else {
+        console.log('[Logged in, so submitting article...]');
+
+        this.submitNewArticle(this.articleUrl);
       }
     }
   },
   watch: {
     isAuthenticated(newVal, oldVal) {
       if (newVal === true && this.loading) {
-        this.loading = false;
+        // this.loading = false;
+        this.submit();
       }
     }
   },
