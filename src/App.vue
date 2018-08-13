@@ -17,19 +17,20 @@ import LoginOverlay from './components/LoginOverlay';
 export default {
   name: 'App',
   computed: {
-      ...mapGetters(
-          ['isAuthenticated', 'displayLoginModal']
-      ),
-      showLoginOverlay() {
-        return this.displayLoginModal || !this.isAuthenticated && !this.$router.currentRoute.meta.guest;
-      }
+    ...mapGetters(['isAuthenticated', 'displayLoginModal']),
+    showLoginOverlay() {
+      return (
+        this.displayLoginModal ||
+        (!this.isAuthenticated && !this.$router.currentRoute.meta.guest)
+      );
+    }
   },
   components: {
     GlobalLoadingAnimation,
     LoginOverlay,
     PageHeader
   }
-}
+};
 </script>
 
 <style lang="scss">
@@ -38,8 +39,8 @@ export default {
   transition: filter 0.4s ease-in;
 }
 
-.app.blurred, .app--pageHeader.blurred {
+.app.blurred,
+.app--pageHeader.blurred {
   filter: blur(3px);
 }
-
 </style>

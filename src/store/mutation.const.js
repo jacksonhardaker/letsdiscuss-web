@@ -1,10 +1,25 @@
 export const ARTICLE = {
-  request: 'ARTICLE_REQUEST',
-  success: 'ARTICLE_SUCCESS',
-  error: 'ARTICLE_ERROR'
+  get: {
+    request: 'ARTICLE_REQUEST',
+    success: 'ARTICLE_SUCCESS',
+    error: 'ARTICLE_ERROR'
+  },
+  submit: {
+    request: 'ARTICLE_SUBMIT_REQUEST',
+    success: 'ARTICLE_SUBMTI_SUCCESS',
+    error: 'ARTICLE_SUBMIT_ERROR'
+  }
 };
 
 export const AUTH = {
+  invalidToken: 'AUTH_INVALID_TOKEN',
+  token: {
+    validate: {
+      request: 'VALIDATE_TOKEN_AUTH_REQUEST',
+      success: 'VALIDATE_TOKEN_AUTH_SUCCESS',
+      error: 'VALIDATE_TOKEN_AUTH_ERROR'
+    }
+  },
   facebook: {
     request: 'FACEBOOK_AUTH_REQUEST',
     success: 'FACEBOOK_AUTH_SUCCESS',
@@ -25,7 +40,7 @@ export const AUTH = {
 export const PERSON = {
   request: 'CURRENT_PERSON_REQUEST',
   success: 'CURRENT_PERSON_SUCCESS',
-  fail: 'CURRENT_PERSON_FAIL'
+  error: 'CURRENT_PERSON_FAIL'
 };
 
 export const LOADING = {
@@ -36,12 +51,12 @@ export const LOADING = {
 export const LOGIN_MODAL = {
   show: 'LOGIN_MODAL_SHOW',
   hide: 'LOGIN_MODAL_HIDE'
-}
+};
 
 export const ALIAS = {
   request: 'CURRENT_ALIAS_REQUEST',
   success: 'CURRENT_ALIAS_SUCCESS',
-  fail: 'CURRENT_ALIAS_FAIL'
+  error: 'CURRENT_ALIAS_FAIL'
 };
 
 export const COMMENTS = {
