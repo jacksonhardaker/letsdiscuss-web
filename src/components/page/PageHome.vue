@@ -2,7 +2,7 @@
   <main class="pageHome flex--col-cs">
     <section class="pageHome--intro">
       <div class="pageHome--introBackground"></div>
-      <p class="pageHome--introContent font-h6">“Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam hendrerit nisi sed sollicitudin pellentesque. Nunc posuere purus rhoncus pulvinar aliquam. Ut aliquet tristique nisl vitae volutpat. Nulla aliquet porttitor venenatis. Donec a dui et dui fringilla consectetur id nec massa. Aliquam erat volutpat. Sed ut dui ut lacus dictum fermentum vel tincidunt neque. Sed sed lacinia lectus. Duis sit amet sodales felis. Duis nunc eros, mattis at dui ac, convallis semper risus. In adipiscing ultrices tellus, in suscipit massa vehicula eu.”</p>
+      <blockquote class="pageHome--introContent font-h6">So we might do well to ease up on “as a” — on the urge to underwrite our observations with our identities. <q>For me,</q> Professor Spivak once tartly remarked, <q>the question ‘Who should speak’ is less crucial than ‘Who will listen?’</q></blockquote>
     </section>
     <article-input/>
     <loading-animation class="pageHome--loading" :show="false" :animate="false"/>
@@ -50,7 +50,7 @@ export default {
   height: 90%;
   top: 5%;
   left: 5%;
-  background-color: $red-light;
+  background-color: $green;
   transform: skew(-8deg, -7deg);
 }
 
