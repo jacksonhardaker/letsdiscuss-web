@@ -27,8 +27,8 @@ if (token) {
   // Validate token
   store.dispatch('validateToken', token).then(valid => {
     if (valid) {
-      store.dispatch('getCurrentPerson');
       axios.defaults.headers.common['Authorization'] = token;
+      store.dispatch('getCurrentPerson');
     } else {
       Cookies.remove('LD-user-token');
       axios.defaults.headers.common['Authorization'] = null;

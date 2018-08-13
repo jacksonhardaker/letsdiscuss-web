@@ -66,7 +66,6 @@ const actions = {
       axios
         .get(`/token/isvalid/${token}`)
         .then(res => {
-          console.log(res);
           commit(AUTH.token.validate.success);
 
           resolve(res.data);
