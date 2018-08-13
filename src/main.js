@@ -24,8 +24,16 @@ const token = Cookies.get('LD-user-token') || null;
 
 // User is logged in.
 if (token) {
-  axios.defaults.headers.common['Authorization'] = token;
-  store.dispatch('getCurrentPerson');
+  // Validate token
+  store.dispatch('validateToken', token).then(valid => {
+    if (valid) {
+      store.dispatch('getCurrentPerson');
+      axios.defaults.headers.common['Authorization'] = token;
+    } else {
+      Cookies.remove('LD-user-token');
+      axios.defaults.headers.common['Authorization'] = null;
+    }
+  });
 }
 
 /* eslint-disable no-new */
