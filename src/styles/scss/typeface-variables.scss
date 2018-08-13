@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Open+Sans+Condensed:300');
+
+/* Family */
+$font-sans: 'Open Sans', sans-serif;
+$font-sans-condensed: 'Open Sans Condensed', sans-serif;
+
+/* Sizes */
+$fontSize-micro: 0.5em;
+$fontSize-smallest: 0.625rem;
+$fontSize-smaller: 0.75rem;
+$fontSize-small: 0.875rem;
+$fontSize-base: 16px;
+$fontSize-large: 1.25rem;
+$fontSize-larger: 1.5rem;
+$fontSize-largest: 2.125rem;
+$fontSize-kilo: 3rem;
+$fontSize-mega: 3.75rem;
+$fontSize-giga: 6rem;
+
+/* Weights */
+$fontWeight-1: 100;
+$fontWeight-2: 200;
+$fontWeight-3: 300;
+$fontWeight-4: 400;
+$fontWeight-5: 500;
+$fontWeight-6: 600;
+$fontWeight-7: 700;
+$fontWeight-8: 800;
+$fontWeight-9: 900;
+
+$fontWeight-boldest: $fontWeight-9;
+$fontWeight-bolder: $fontWeight-8;
+$fontWeight-bold: $fontWeight-7;
+$fontWeight-mediumplus: $fontWeight-6;
+$fontWeight-medium: $fontWeight-5;
+$fontWeight-normal: $fontWeight-4;
+$fontWeight-light: $fontWeight-3;
+$fontWeight-lighter: $fontWeight-2;
+$fontWeight-lightest: $fontWeight-1;
+
+/* Mappings */
+$font-base: (
+  font-family: $font-sans
+);
+
+// Font h1
+$font-h1: (
+  font-family: map-get($font-base, font-family),
+  font-weight: $fontWeight-light,
+  font-size: $fontSize-giga,
+  letter-spacing: -1.5px
+);
+// Font h2
+$font-h2: (
+  font-family: map-get($font-base, font-family),
+  font-weight: $fontWeight-light,
+  font-size: $fontSize-mega,
+  letter-spacing: -0.5px
+);
+// Font h3
+$font-h3: (
+  font-family: map-get($font-base, font-family),
+  font-weight: $fontWeight-normal,
+  font-size: $fontSize-kilo,
+  letter-spacing: 0
+);
+// Font h4
+$font-h4: (
+  font-family: map-get($font-base, font-family),
+  font-weight: $fontWeight-normal,
+  font-size: $fontSize-largest,
+  letter-spacing: 0.25px
+);
+// Font h5
+$font-h5: (
+  font-family: map-get($font-base, font-family),
+  font-weight: $fontWeight-normal,
+  font-size: $fontSize-larger,
+  letter-spacing: 0
+);
+// Font h6
+$font-h6: (
+  font-family: map-get($font-base, font-family),
+  font-weight: $fontWeight-medium,
+  font-size: $fontSize-large,
+  letter-spacing: 0.15px
+);
+// Font subtitle-1
+$font-subtitle-1: (
+  font-family: map-get($font-base, font-family),
+  font-weight: $fontWeight-normal,
+  font-size: $fontSize-base,
+  letter-spacing: 0.15px
+);
+// Font subtitle-2
+$font-subtitle-2: (
+  font-family: map-get($font-base, font-family),
+  font-weight: $fontWeight-medium,
+  font-size: $fontSize-small,
+  letter-spacing: 0.1px
+);
+// Font body-1
+$font-body-1: (
+  font-family: map-get($font-base, font-family),
+  font-weight: $fontWeight-normal,
+  font-size: $fontSize-base,
+  letter-spacing: 0.5px
+);
+// Font body-2
+$font-body-2: (
+  font-family: map-get($font-base, font-family),
+  font-weight: $fontWeight-normal,
+  font-size: $fontSize-small,
+  letter-spacing: 0.25px
+);
+// Font button
+$font-button: (
+  font-family: map-get($font-base, font-family),
+  font-weight: $fontWeight-medium,
+  font-size: $fontSize-small,
+  text-transform: uppercase,
+  letter-spacing: 0.75px
+);
+// Font caption
+$font-caption: (
+  font-family: map-get($font-base, font-family),
+  font-weight: $fontWeight-normal,
+  font-size: $fontSize-smaller,
+  letter-spacing: 0.4px
+);
+// Font overline
+$font-overline: (
+  font-family: map-get($font-base, font-family),
+  font-weight: $fontWeight-normal,
+  font-size: $fontSize-smallest,
+  text-transform: uppercase,
+  letter-spacing: 1.5px
+);

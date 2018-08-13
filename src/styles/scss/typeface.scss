@@ -1,180 +1,240 @@
-@import url('https://fonts.googleapis.com/css?family=Open+Sans|Open+Sans+Condensed:300');
+@import 'typeface-variables.scss';
 
-$font-sans: 'Open Sans', sans-serif;
-$font-sans-condensed: 'Open Sans Condensed', sans-serif;
-
-/* Sizes */
-$fontSize-micro: 0.5em;
-$fontSize-smallest: 0.625rem;
-$fontSize-smaller: 0.75rem;
-$fontSize-small: 0.875rem;
-$fontSize-base: 16px;
-$fontSize-large: 1.25rem;
-$fontSize-larger: 1.5rem;
-$fontSize-largest: 2.125rem;
-$fontSize-kilo: 3rem;
-$fontSize-mega: 3.75rem;
-$fontSize-giga: 6rem;
-
-/* Weights */
-$fontWeight-1: 100;
-$fontWeight-2: 200;
-$fontWeight-3: 300;
-$fontWeight-4: 400;
-$fontWeight-5: 500;
-$fontWeight-6: 600;
-$fontWeight-7: 700;
-$fontWeight-8: 800;
-$fontWeight-9: 900;
-
-$fontWeight-boldest: $fontWeight-9;
-$fontWeight-bolder: $fontWeight-8;
-$fontWeight-bold: $fontWeight-7;
-$fontWeight-mediumplus: $fontWeight-6;
-$fontWeight-medium: $fontWeight-5;
-$fontWeight-normal: $fontWeight-4;
-$fontWeight-light: $fontWeight-3;
-$fontWeight-lighter: $fontWeight-2;
-$fontWeight-lightest: $fontWeight-1;
-
-.font-h1, h1 {
-    font-family: $font-sans;
-    font-weight: $fontWeight-light;
-    font-size: $fontSize-giga;
-    letter-spacing: -1.5px;
+html,
+body {
+  font-family: $font-sans;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-.font-h2, h2 {
-    font-family: $font-sans;
-    font-weight: $fontWeight-light;
-    font-size: $fontSize-mega;
-    letter-spacing: -0.5px;
+/* Begin material design type classes */
+
+.font-h1,
+h1 {
+  font-family: map-get($font-h1, font-family);
+  font-weight: map-get($font-h1, font-weight);
+  font-size: map-get($font-h1, font-size);
+  letter-spacing: map-get($font-h1, letter-spacing);
 }
 
-.font-h3, h3 {
-    font-family: $font-sans;
-    font-weight: $fontWeight-normal;
-    font-size: $fontSize-kilo;
-    letter-spacing: 0px;
+@mixin font-h1 {
+  font-family: map-get($font-h1, font-family);
+  font-weight: map-get($font-h1, font-weight);
+  font-size: map-get($font-h1, font-size);
+  letter-spacing: map-get($font-h1, letter-spacing);
 }
 
-.font-h4, h4 {
-    font-family: $font-sans;
-    font-weight: $fontWeight-normal;
-    font-size: $fontSize-largest;
-    letter-spacing: 0.25px;
+.font-h2,
+h2 {
+  font-family: map-get($font-h2, font-family);
+  font-weight: map-get($font-h2, font-weight);
+  font-size: map-get($font-h2, font-size);
+  letter-spacing: map-get($font-h2, letter-spacing);
 }
 
-.font-h5, h5 {
-    font-family: $font-sans;
-    font-weight: $fontWeight-normal;
-    font-size: $fontSize-larger;
-    letter-spacing: 0px;
+@mixin font-h2 {
+  font-family: map-get($font-h2, font-family);
+  font-weight: map-get($font-h2, font-weight);
+  font-size: map-get($font-h2, font-size);
+  letter-spacing: map-get($font-h2, letter-spacing);
 }
 
-.font-h6, h6 {
-    font-family: $font-sans;
-    font-weight: $fontWeight-medium;
-    font-size: $fontSize-large;
-    letter-spacing: 0.15px;
+.font-h3,
+h3 {
+  font-family: map-get($font-h3, font-family);
+  font-weight: map-get($font-h3, font-weight);
+  font-size: map-get($font-h3, font-size);
+  letter-spacing: map-get($font-h3, letter-spacing);
 }
 
-.font-subtitle-1 {
-    font-family: $font-sans;
-    font-weight: $fontWeight-normal;
-    font-size: $fontSize-base;
-    letter-spacing: 0.15px;
+@mixin font-h3 {
+  font-family: map-get($font-h3, font-family);
+  font-weight: map-get($font-h3, font-weight);
+  font-size: map-get($font-h3, font-size);
+  letter-spacing: map-get($font-h3, letter-spacing);
 }
 
-.font-subtitle-2 {
-    font-family: $font-sans;
-    font-weight: $fontWeight-medium;
-    font-size: $fontSize-small;
-    letter-spacing: 0.1px;
+.font-h4,
+h4 {
+  font-family: map-get($font-h4, font-family);
+  font-weight: map-get($font-h4, font-weight);
+  font-size: map-get($font-h4, font-size);
+  letter-spacing: map-get($font-h4, letter-spacing);
 }
 
-.font-body-1 {
-    font-family: $font-sans;
-    font-weight: $fontWeight-normal;
-    font-size: $fontSize-base;
-    letter-spacing: 0.5px;
+@mixin font-h4 {
+  font-family: map-get($font-h4, font-family);
+  font-weight: map-get($font-h4, font-weight);
+  font-size: map-get($font-h4, font-size);
+  letter-spacing: map-get($font-h4, letter-spacing);
 }
 
-.font-body-2 {
-    font-family: $font-sans;
-    font-weight: $fontWeight-normal;
-    font-size: $fontSize-small;
-    letter-spacing: 0.25px;
+.font-h5,
+h5 {
+  font-family: map-get($font-h5, font-family);
+  font-weight: map-get($font-h5, font-weight);
+  font-size: map-get($font-h5, font-size);
+  letter-spacing: map-get($font-h5, letter-spacing);
 }
 
-// Font Button
-$font-button: (
-    font-family: $font-sans,
-    font-weight: $fontWeight-medium,
-    font-size: $fontSize-small,
-    text-transform: uppercase,
-    letter-spacing: 0.75px
-);
+@mixin font-h5 {
+  font-family: map-get($font-h5, font-family);
+  font-weight: map-get($font-h5, font-weight);
+  font-size: map-get($font-h5, font-size);
+  letter-spacing: map-get($font-h5, letter-spacing);
+}
+
+.font-h6,
+h6 {
+  font-family: map-get($font-h6, font-family);
+  font-weight: map-get($font-h6, font-weight);
+  font-size: map-get($font-h6, font-size);
+  letter-spacing: map-get($font-h6, letter-spacing);
+}
+
+@mixin font-h6 {
+  font-family: map-get($font-h6, font-family);
+  font-weight: map-get($font-h6, font-weight);
+  font-size: map-get($font-h6, font-size);
+  letter-spacing: map-get($font-h6, letter-spacing);
+}
+
+.font-subtitle-1,
+subtitle-1 {
+  font-family: map-get($font-subtitle-1, font-family);
+  font-weight: map-get($font-subtitle-1, font-weight);
+  font-size: map-get($font-subtitle-1, font-size);
+  letter-spacing: map-get($font-subtitle-1, letter-spacing);
+}
+
+@mixin font-subtitle-1 {
+  font-family: map-get($font-subtitle-1, font-family);
+  font-weight: map-get($font-subtitle-1, font-weight);
+  font-size: map-get($font-subtitle-1, font-size);
+  letter-spacing: map-get($font-subtitle-1, letter-spacing);
+}
+
+.font-subtitle-2,
+subtitle-2 {
+  font-family: map-get($font-subtitle-2, font-family);
+  font-weight: map-get($font-subtitle-2, font-weight);
+  font-size: map-get($font-subtitle-2, font-size);
+  letter-spacing: map-get($font-subtitle-2, letter-spacing);
+}
+
+@mixin font-subtitle-2 {
+  font-family: map-get($font-subtitle-2, font-family);
+  font-weight: map-get($font-subtitle-2, font-weight);
+  font-size: map-get($font-subtitle-2, font-size);
+  letter-spacing: map-get($font-subtitle-2, letter-spacing);
+}
+
+.font-body-1,
+body-1 {
+  font-family: map-get($font-body-1, font-family);
+  font-weight: map-get($font-body-1, font-weight);
+  font-size: map-get($font-body-1, font-size);
+  letter-spacing: map-get($font-body-1, letter-spacing);
+}
+
+@mixin font-body-1 {
+  font-family: map-get($font-body-1, font-family);
+  font-weight: map-get($font-body-1, font-weight);
+  font-size: map-get($font-body-1, font-size);
+  letter-spacing: map-get($font-body-1, letter-spacing);
+}
+
+.font-body-2,
+body-2 {
+  font-family: map-get($font-body-2, font-family);
+  font-weight: map-get($font-body-2, font-weight);
+  font-size: map-get($font-body-2, font-size);
+  letter-spacing: map-get($font-body-2, letter-spacing);
+}
+
+@mixin font-body-2 {
+  font-family: map-get($font-body-2, font-family);
+  font-weight: map-get($font-body-2, font-weight);
+  font-size: map-get($font-body-2, font-size);
+  letter-spacing: map-get($font-body-2, letter-spacing);
+}
 
 .font-button {
-    font-family: map-get($font-button, font-family);
-    font-weight: map-get($font-button, font-weight);
-    font-size: map-get($font-button, font-size);
-    text-transform: map-get($font-button, text-transform);
-    letter-spacing: map-get($font-button, letter-spacing);
+  font-family: map-get($font-button, font-family);
+  font-weight: map-get($font-button, font-weight);
+  font-size: map-get($font-button, font-size);
+  text-transform: map-get($font-button, text-transform);
+  letter-spacing: map-get($font-button, letter-spacing);
 }
 
 @mixin font-button {
-    font-family: map-get($font-button, font-family);
-    font-weight: map-get($font-button, font-weight);
-    font-size: map-get($font-button, font-size);
-    text-transform: map-get($font-button, text-transform);
-    letter-spacing: map-get($font-button, letter-spacing);
+  font-family: map-get($font-button, font-family);
+  font-weight: map-get($font-button, font-weight);
+  font-size: map-get($font-button, font-size);
+  text-transform: map-get($font-button, text-transform);
+  letter-spacing: map-get($font-button, letter-spacing);
 }
 
-// Font Caption
 .font-caption {
-    font-family: $font-sans;
-    font-weight: $fontWeight-normal;
-    font-size: $fontSize-smaller;
-    letter-spacing: 0.4px;
+  font-family: map-get($font-caption, font-family);
+  font-weight: map-get($font-caption, font-weight);
+  font-size: map-get($font-caption, font-size);
+  letter-spacing: map-get($font-caption, letter-spacing);
 }
 
-// Font-overline
+@mixin font-caption {
+  font-family: map-get($font-caption, font-family);
+  font-weight: map-get($font-caption, font-weight);
+  font-size: map-get($font-caption, font-size);
+  letter-spacing: map-get($font-caption, letter-spacing);
+}
+
 .font-overline {
-    font-family: $font-sans;
-    font-weight: $fontWeight-normal;
-    font-size: $fontSize-smallest;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
+  font-family: map-get($font-overline, font-family);
+  font-weight: map-get($font-overline, font-weight);
+  font-size: map-get($font-overline, font-size);
+  text-transform: map-get($font-button, text-transform);
+  letter-spacing: map-get($font-overline, letter-spacing);
+}
+
+@mixin font-overline {
+  font-family: map-get($font-overline, font-family);
+  font-weight: map-get($font-overline, font-weight);
+  font-size: map-get($font-overline, font-size);
+  text-transform: map-get($font-button, text-transform);
+  letter-spacing: map-get($font-overline, letter-spacing);
+}
+
+/* End material design type classes */
+
+/* Begin utility classes */
+
+.font-sans {
+  font-family: map-get($font-overline, font-family);
 }
 
 .font-sansN4 {
-    font-family: $font-sans;
-    font-style: normal;
-    font-weight: $fontWeight-4;
+  @extend .font-sans;
+  font-style: normal;
+  font-weight: $fontWeight-4;
 }
 
 .font-sansN7 {
-    font-family: $font-sans;
-    font-style: normal;
-    font-weight: $fontWeight-7;
+  @extend .font-sans;
+  font-style: normal;
+  font-weight: $fontWeight-7;
 }
 
 .font-sansI4 {
-    font-family: $font-sans;
-    font-style: italic;
-    font-weight: $fontWeight-4;
+  @extend .font-sans;
+  font-style: italic;
+  font-weight: $fontWeight-4;
 }
 
 .font-sansI7 {
-    font-family: $font-sans;
-    font-style: italic;
-    font-weight: $fontWeight-7;
+  @extend .font-sans;
+  font-style: italic;
+  font-weight: $fontWeight-7;
 }
 
-html, body {
-    font-family: $font-sans;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
+/* End utility classes */
