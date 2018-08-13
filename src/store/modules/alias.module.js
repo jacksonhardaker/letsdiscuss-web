@@ -36,7 +36,7 @@ const actions = {
           resolve(res.data);
         })
         .catch(err => {
-          commit(ALIAS.error, err);
+          commit(ALIAS.error);
         });
     });
   }

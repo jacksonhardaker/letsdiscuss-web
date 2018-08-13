@@ -36,16 +36,48 @@ const mutations = {
   [AUTH.logout.request]: state => {
     state.status = 'loading';
   },
-  [AUTH.logout.success]: (state) => {
+  [AUTH.logout.success]: state => {
     state.status = 'success';
     state.token = null;
   },
   [AUTH.logout.error]: state => {
     state.status = 'error';
-  }
+  },
+  [AUTH.invalidToken]: state => {
+    state.status = 'invalid token';
+    state.token = null;
+  },
+  [AUTH.token.validate.request]: state => {
+    state.status = 'loading';
+  },
+  [AUTH.token.validate.success]: state => {
+    state.status = 'success';
+  },
+  [AUTH.token.validate.error]: state => {
+    state.status = 'error';
+  },
 };
 
 const actions = {
+  ['validateToken']: ({ commit, dispatch }, token) => {
+    return new Promise((resolve, reject) => {
+      commit(AUTH.token.validate.request);
+
+      axios
+        .get(`/token/isvalid/${token}`)
+        .then(res => {
+          console.log(res);
+          commit(AUTH.token.validate.success);
+
+          resolve(res.data);
+        })
+        .catch(err => {
+          commit(AUTH.token.validate.error, err);
+
+          reject(err);
+        });
+    });
+  },
   ['facebookLogin']: ({ commit, dispatch }) => {
     return new Promise((resolve, reject) => {
       commit(AUTH.facebook.request);
