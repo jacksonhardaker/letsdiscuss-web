@@ -4,7 +4,7 @@
         <img class="articleCard--image" :src="image" :alt="title"/>
         <base-url class="font-overline" v-bind:src="url"/>
     </a>
-    <h1 class="font-h5">{{title}}</h1>
+    <h1 class="font-h5 text-align-c">{{title}}</h1>
     <aside class="font-caption">by {{author}}</aside>
     <hr/>
     <p class="articleCard--desc font-body-2">{{description}}</p>
