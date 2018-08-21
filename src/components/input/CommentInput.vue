@@ -34,15 +34,21 @@ export default {
     }),
     submit() {
       if (this.comment) {
+        
         // Reply to a comment
         this.replyToComment({
           comment: this.comment,
           commentText: this.commentText
+        }).then(() => {
+          this.commentText = '';
         });
       } else {
+
         this.leaveComment({
           article: this.article,
           commentText: this.commentText
+        }).then(() => {
+          this.commentText = '';
         });
       }
     }
