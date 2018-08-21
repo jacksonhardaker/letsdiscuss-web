@@ -23,14 +23,29 @@ const mutations = {
     state.status = 'error';
   },
   [COMMENTS.get.all.request]: state => {
-      state.status = 'loading';
+    state.status = 'loading';
   },
   [COMMENTS.get.all.success]: (state, comments) => {
-      state.status = 'success';
-      state.articleComments = comments;
+    state.status = 'success';
+    state.articleComments = comments;
   },
   [COMMENTS.get.all.error]: state => {
-      state.status = 'error';
+    state.status = 'error';
+  },
+  [COMMENTS.reply.request]: state => {
+    state.status = 'loading';
+  },
+  [COMMENTS.reply.success]: (state, args) => {
+    state.status = 'success';
+    console.log(args.reply, args.parent);
+    const index = state.articleComments.findIndex(
+      comment => comment.id === args.parent.id
+    );
+    console.log(index);
+    state.articleComments[index].replies.push(args.reply);
+  },
+  [COMMENTS.reply.error]: state => {
+    state.status = 'error';
   }
 };
 
@@ -50,7 +65,7 @@ const actions = {
           commit(COMMENTS.leave.success, res.data);
           commit(LOADING.finish);
 
-          dispatch('getCurrentAliasForArticle', args.article);
+          dispatch('getCurrentAliasForArticle');
 
           resolve(res.data);
         })
@@ -62,21 +77,54 @@ const actions = {
         });
     });
   },
+  ['replyToComment']: ({ commit, dispatch }, args) => {
+    return new Promise((resolve, reject) => {
+      commit(COMMENTS.reply.request);
+
+      commit(LOADING.begin);
+
+      const params = new URLSearchParams();
+      params.append('comment', args.commentText);
+
+      axios
+        .put(
+          `/comment/${args.comment.article}/reply/${args.comment.id}`,
+          params
+        )
+        .then(res => {
+          commit(COMMENTS.reply.success, {
+            reply: res.data,
+            parent: args.comment
+          });
+          commit(LOADING.finish);
+
+          dispatch('getCurrentAliasForArticle');
+
+          resolve(res.data);
+        })
+        .catch(err => {
+          commit(COMMENTS.reply.error, err);
+          commit(LOADING.finish);
+
+          reject(err);
+        });
+    });
+  },
   ['getAllComments']: ({ commit, dispatch }, article) => {
     return new Promise((resolve, reject) => {
-        commit(COMMENTS.get.all.request);
+      commit(COMMENTS.get.all.request);
 
-        axios
-            .get(`/comments/${article.id}`)
-            .then(res => {
-                commit(COMMENTS.get.all.success, res.data);
-                
-                resolve(res.data);
-            })
-            .catch(err => {
-                commit(COMMENTS.get.all.error);
-                reject(err);
-            })
+      axios
+        .get(`/comments/${article.id}`)
+        .then(res => {
+          commit(COMMENTS.get.all.success, res.data);
+
+          resolve(res.data);
+        })
+        .catch(err => {
+          commit(COMMENTS.get.all.error);
+          reject(err);
+        });
     });
   }
 };
