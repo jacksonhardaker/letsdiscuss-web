@@ -7,7 +7,11 @@ import PageHome from '@/components/page/PageHome';
 import PageAbout from '@/components/page/PageAbout';
 import PageArticle from '@/components/page/PageArticle';
 
+const baseUrl = process.env.WEB_BASE_URL;
+console.log(baseUrl);
+
 export default new Router({
+  base: baseUrl,
   routes: [
     {
       path: '/',
