@@ -14,7 +14,8 @@ export default new Router({
       name: 'home',
       component: PageHome,
       meta: {
-        guest: true
+        guest: true,
+        showAlias: false
       }
     },
     {
@@ -22,7 +23,8 @@ export default new Router({
       name: 'about',
       component: PageAbout,
       meta: {
-        guest: true
+        guest: true,
+        showAlias: false
       }
     },
     {
@@ -30,7 +32,8 @@ export default new Router({
       name: 'article',
       component: PageArticle,
       meta: {
-        guest: false
+        guest: false,
+        showAlias: true
       }
     }
   ],
