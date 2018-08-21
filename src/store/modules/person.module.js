@@ -33,6 +33,8 @@ const actions = {
         .get('/person')
         .then(res => {
           commit(PERSON.success, res.data);
+
+          dispatch('getCurrentAliasForArticle');
         })
         .catch(err => {
           commit(PERSON.error, err);
