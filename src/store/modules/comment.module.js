@@ -37,11 +37,9 @@ const mutations = {
   },
   [COMMENTS.reply.success]: (state, args) => {
     state.status = 'success';
-    console.log(args.reply, args.parent);
     const index = state.articleComments.findIndex(
       comment => comment.id === args.parent.id
     );
-    console.log(index);
     state.articleComments[index].replies.push(args.reply);
   },
   [COMMENTS.reply.error]: state => {
