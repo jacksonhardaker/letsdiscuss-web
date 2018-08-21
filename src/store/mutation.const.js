@@ -71,5 +71,10 @@ export const COMMENTS = {
       success: 'GETALL_COMMENTS_SUCCESS',
       error: 'GETALL_COMMENTS_ERROR'
     }
+  },
+  reply: {
+    request: 'REPLY_TO_COMMENT_REQUEST',
+    success: 'REPLY_TO_COMMENT_SUCCESS',
+    error: 'REPLY_TO_COMMENT_ERROR'
   }
 };
