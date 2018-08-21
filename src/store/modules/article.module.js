@@ -9,7 +9,7 @@ const state = {
 
 const getters = {
   getArticleStatus: state => state.status,
-  getCurrentArticle: state => state.article
+  getArticle: state => state.article
 };
 
 const mutations = {
@@ -26,7 +26,7 @@ const mutations = {
   [ARTICLE.submit.request]: state => {
     state.status = 'loading';
   },
-  [ARTICLE.submit.success]: (state) => {
+  [ARTICLE.submit.success]: state => {
     state.status = 'success';
   },
   [ARTICLE.submit.error]: state => {
@@ -49,7 +49,6 @@ const actions = {
           console.log(res.data);
 
           router.push(`/article/${res.data.slug}`);
-          // dispatch('getCurrentArticle')
         })
         .catch(err => {
           commit(ARTICLE.submit.error);
@@ -58,7 +57,12 @@ const actions = {
         });
     });
   },
-  ['getCurrentArticle']: ({ commit, dispatch }, params) => {
+  ['getCurrentArticle']: ({ commit, dispatch }) => {
+    return new Promise((resolve, reject) => {
+      resolve(getters.getArticle(state));
+    });
+  },
+  ['getArticle']: ({ commit, dispatch }, params) => {
     return new Promise((resolve, reject) => {
       commit(ARTICLE.get.request);
       commit(LOADING.begin);
@@ -69,7 +73,7 @@ const actions = {
           commit(ARTICLE.get.success, res.data);
           commit(LOADING.finish);
 
-          dispatch('getCurrentAliasForArticle', res.data);
+          dispatch('getCurrentAliasForArticle');
           dispatch('getAllComments', res.data);
 
           resolve(res.data);
