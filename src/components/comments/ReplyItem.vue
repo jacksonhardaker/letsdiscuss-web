@@ -1,7 +1,7 @@
 <template>
     <section class="replyItem">
         <div class="replyItem--content flex--row-ss">
-            <person-avatar :picture="reply.alias.pictureUrl" :name="reply.alias.name"/>
+            <person-avatar :picture="reply.alias.pictureUrl" :name="reply.alias.name" size="small"/>
             <p>{{reply.body}}</p>
         </div>
     </section>

@@ -24,6 +24,6 @@ export default {
 .replyList {
     padding-left: 18px;
     margin-left: 18px;
-    border-left: 1px solid $black-t4;
+    // border-left: 1px solid $black-t4;
 }
 </style>

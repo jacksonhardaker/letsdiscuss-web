@@ -1,6 +1,6 @@
 <template>
     <div class="commentInput flex--row-sc">
-        <person-avatar :picture="aliasPicture" :name="aliasName"/>
+        <person-avatar :picture="aliasPicture" :name="aliasName" size="small"/>
         <input v-model="commentText" type="text"/>
         <button v-on:click="submit()" class="btn">Comment</button>
     </div>
@@ -13,7 +13,7 @@ import PersonAvatar from '../icons/PersonAvatar';
 
 export default {
   name: 'CommentInput',
-  props: ['article', 'alias'],
+  props: ['article', 'alias', 'comment'],
   data: function() {
     return {
       commentText: ''
@@ -29,10 +29,22 @@ export default {
   },
   methods: {
     ...mapActions({
-      leaveComment: 'leaveComment'
+      leaveComment: 'leaveComment',
+      replyToComment: 'replyToComment'
     }),
-    submit () {
-        this.leaveComment({article: this.article, commentText: this.commentText});
+    submit() {
+      if (this.comment) {
+        // Reply to a comment
+        this.replyToComment({
+          comment: this.comment,
+          commentText: this.commentText
+        });
+      } else {
+        this.leaveComment({
+          article: this.article,
+          commentText: this.commentText
+        });
+      }
     }
   },
   components: {

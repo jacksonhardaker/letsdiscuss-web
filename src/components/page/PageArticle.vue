@@ -1,7 +1,7 @@
 <template>
   <article class="pageArticle flex--col-cc">
     <article-card v-bind:image="image" v-bind:title="title" v-bind:description="description" v-bind:url="url" v-bind:author="author"/>
-    <comment-list :comments="articleComments"/>
+    <comment-list :comments="articleComments" :current-alias="alias"/>
     <comment-input :article="article" :alias="alias"/>
   </article>
 </template>
@@ -18,7 +18,7 @@ export default {
   computed: {
     ...mapGetters({
       status: 'getArticleStatus',
-      article: 'getCurrentArticle',
+      article: 'getArticle',
       alias: 'currentAlias',
       articleComments: 'articleComments'
     }),
@@ -41,14 +41,14 @@ export default {
     }
   },
   methods: {
-    ...mapActions(['getCurrentArticle'])
+    ...mapActions(['getArticle'])
   },
   created: async function() {
     console.log(
       `[Attempting to load article... ${decodeURIComponent(this.$route.path)}]`
     );
 
-    let article = await this.getCurrentArticle(this.$route.params);
+    let article = await this.getArticle(this.$route.params);
   },
   components: {
     ArticleCard,

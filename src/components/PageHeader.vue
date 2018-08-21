@@ -2,8 +2,8 @@
     <header class="pageHeader">
       <div class="pageHeader--loggedIn flex--row-sc" v-if="isAuthenticated">
         <person-avatar :picture="personPicture" :name="personName"/>
-        <span class="font-h4">=</span>
-        <person-avatar :picture="aliasPicture" :name="aliasName"/>
+        <span v-if="showAlias" class="font-h4">=</span>
+        <person-avatar v-if="showAlias" :picture="aliasPicture" :name="aliasName"/>
         <button v-on:click="logout()" class="pageHeader--logoutBtn btn font-button">Logout</button>
       </div>
       <div class="pageHeader--loggedOut flex--row-ec" v-if="!isAuthenticated">
@@ -32,6 +32,9 @@ export default {
     },
     aliasName() {
       return this.currentAlias ? this.currentAlias.name : '';
+    },
+    showAlias() {
+      return this.$router.currentRoute.meta.showAlias;
     }
   },
   methods: {

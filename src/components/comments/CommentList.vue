@@ -1,7 +1,7 @@
 <template>
     <ul class="commentList list--noBullet">
         <li class="commentList--item" v-for="comment in comments" :key="comment.id">
-            <comment-item :comment="comment"/>
+            <comment-item :comment="comment" :current-alias="currentAlias"/>
         </li>
     </ul>
 </template>
@@ -11,7 +11,7 @@ import CommentItem from './CommentItem';
 
 export default {
     name: 'CommentList',
-    props: ['comments'],
+    props: ['comments', 'currentAlias'],
     components: {
         CommentItem
     }
