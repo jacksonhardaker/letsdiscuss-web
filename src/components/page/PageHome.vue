@@ -2,7 +2,8 @@
   <main class="pageHome flex--col-cs">
     <section class="pageHome--intro">
       <div class="pageHome--introBackground"></div>
-      <blockquote class="pageHome--introContent font-h6">So we might do well to ease up on “as a” — on the urge to underwrite our observations with our identities. <q>For me,</q> Professor Spivak once tartly remarked, <q>the question ‘Who should speak’ is less crucial than ‘Who will listen?’</q></blockquote>
+      <blockquote class="pageHome--introContent font-h6">So we might do well to ease up on “as a” — on the urge to underwrite our observations with our identities. <q>For me,</q> Professor Spivak once tartly remarked, <q>the question ‘Who should speak’ is less crucial than ‘Who will listen?’</q>
+      <p>- Kwame Anthony Appiah</p></blockquote>
     </section>
     <article-input/>
     <loading-animation class="pageHome--loading" :show="false" :animate="false"/>
