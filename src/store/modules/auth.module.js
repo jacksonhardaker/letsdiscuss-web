@@ -165,6 +165,9 @@ const actions = {
           commit(AUTH.logout.error, err);
           commit(LOADING.finish);
 
+          Cookies.remove('LD-user-token');
+          axios.defaults.headers.common['Authorization'] = null;
+
           reject(err);
         });
     });
