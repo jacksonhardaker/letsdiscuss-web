@@ -2,7 +2,7 @@
   <article class="pageArticle flex--col-cc">
     <article-card v-bind:image="image" v-bind:title="title" v-bind:description="description" v-bind:url="url" v-bind:author="author"/>
     <comment-list :comments="articleComments" :current-alias="alias"/>
-    <comment-input :article="article" :alias="alias"/>
+    <comment-input class="pageArticle--commentInput" :article="article" :alias="alias"/>
   </article>
 </template>
 
@@ -59,4 +59,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '../../styles/scss/colors.scss';
+
+.pageArticle--commentInput {
+  padding-top: 10px;
+  border-top: 3px dashed $green;
+  width: 500px;
+  justify-content: center;
+}
 </style>

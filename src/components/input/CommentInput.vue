@@ -1,8 +1,8 @@
 <template>
     <div class="commentInput flex--row-sc">
         <person-avatar :picture="aliasPicture" :name="aliasName" size="small"/>
-        <input v-model="commentText" type="text"/>
-        <button v-on:click="submit()" class="btn">Comment</button>
+        <input class="commentInput--input" v-model="commentText" type="text"/>
+        <button v-on:click="submit()" class="btn"><i class="fa fa-paper-plane"></i></button>
     </div>
 </template>
 
@@ -34,7 +34,6 @@ export default {
     }),
     submit() {
       if (this.comment) {
-        
         // Reply to a comment
         this.replyToComment({
           comment: this.comment,
@@ -43,7 +42,6 @@ export default {
           this.commentText = '';
         });
       } else {
-
         this.leaveComment({
           article: this.article,
           commentText: this.commentText
@@ -60,4 +58,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '../../styles/scss/colors.scss';
+
+.commentInput--input {
+  height: 32px;
+  margin: 0 10px;
+  border: 1px solid $black-t2;
+}
 </style>
