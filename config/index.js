@@ -50,7 +50,7 @@ module.exports = {
     // Paths
     assetsRoot: path.resolve(__dirname, '../letsdiscuss-preview'),
     assetsSubDirectory: 'static',
-    assetsPublicPath: '/letsdiscuss-web/',
+    assetsPublicPath: '/letsdiscuss-preview/',
 
     /**
      * Source Maps
