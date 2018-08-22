@@ -27,18 +27,21 @@ const mutations = {
 const actions = {
   ['getCurrentAliasForArticle']: ({ commit, dispatch }) => {
     return new Promise((resolve, reject) => {
-      commit(ALIAS.request);
 
       dispatch('getCurrentArticle').then(article => {
-        axios
-          .get(`/alias/current/${article.id}`)
-          .then(res => {
-            commit(ALIAS.success, res.data);
-            resolve(res.data);
-          })
-          .catch(err => {
-            commit(ALIAS.error);
-          });
+        if (article) {
+          commit(ALIAS.request);
+          
+          axios
+            .get(`/alias/current/${article.id}`)
+            .then(res => {
+              commit(ALIAS.success, res.data);
+              resolve(res.data);
+            })
+            .catch(err => {
+              commit(ALIAS.error);
+            });
+        }
       });
     });
   }
