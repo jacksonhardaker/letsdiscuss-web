@@ -42,6 +42,7 @@ const mutations = {
   },
   [AUTH.logout.error]: state => {
     state.status = 'error';
+    state.token = null;
   },
   [AUTH.invalidToken]: state => {
     state.status = 'invalid token';
