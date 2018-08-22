@@ -19,7 +19,7 @@ export default {
 @import '../../styles/scss/colors.scss';
 
 .btn--google {
-  background-color: $gp-red;
+  background-color: $gp-red !important;
   color: $white;
 }
 

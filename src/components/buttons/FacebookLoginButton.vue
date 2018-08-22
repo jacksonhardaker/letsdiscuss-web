@@ -19,7 +19,7 @@ export default {
 @import '../../styles/scss/colors.scss';
 
 .btn--facebook {
-  background-color: $fb-blue-dark;
+  background-color: $fb-blue-dark !important;
   color: $white;
 }
 
